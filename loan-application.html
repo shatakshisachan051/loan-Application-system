@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Application</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/loan-application.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">Loan Application</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">
+                            <i class="fas fa-home"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="logout-btn">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="application-container">
+        <div class="progress-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+            </div>
+            <div class="steps">
+                <div class="step active" data-step="1">
+                    <i class="fas fa-user"></i>
+                    <span>Personal Info</span>
+                </div>
+                <div class="step" data-step="2">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <span>Financial Details</span>
+                </div>
+                <div class="step" data-step="3">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Documents</span>
+                </div>
+                <div class="step" data-step="4">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Review</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <form id="loan-application-form">
+                <!-- Step 1: Personal Information -->
+                <div class="form-step active" data-step="1">
+                    <h3>Personal Information</h3>
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="fullName" required>
+                        <div class="invalid-feedback">Please enter your full name</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                        <div class="invalid-feedback">Please enter a valid email</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" id="phone" required>
+                        <div class="invalid-feedback">Please enter a valid phone number</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="dob" class="form-label">Date of Birth</label>
+                        <input type="date" class="form-control" id="dob" required>
+                        <div class="invalid-feedback">Please enter your date of birth</div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Financial Details -->
+                <div class="form-step" data-step="2">
+                    <h3>Financial Details</h3>
+                    <div class="mb-3">
+                        <label for="monthlyIncome" class="form-label">Monthly Income</label>
+                        <input type="number" class="form-control" id="monthlyIncome" required>
+                        <div class="invalid-feedback">Please enter your monthly income</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="employmentStatus" class="form-label">Employment Status</label>
+                        <select class="form-select" id="employmentStatus" required>
+                            <option value="">Select employment status</option>
+                            <option value="employed">Employed</option>
+                            <option value="self-employed">Self Employed</option>
+                            <option value="business">Business Owner</option>
+                        </select>
+                        <div class="invalid-feedback">Please select your employment status</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="loanAmount" class="form-label">Loan Amount</label>
+                        <input type="number" class="form-control" id="loanAmount" required>
+                        <div class="invalid-feedback">Please enter the loan amount</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="loanPurpose" class="form-label">Loan Purpose</label>
+                        <select class="form-select" id="loanPurpose" required>
+                            <option value="">Select loan purpose</option>
+                            <option value="personal">Personal Loan</option>
+                            <option value="home">Home Loan</option>
+                            <option value="education">Education Loan</option>
+                            <option value="business">Business Loan</option>
+                        </select>
+                        <div class="invalid-feedback">Please select the loan purpose</div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Document Upload -->
+                <div class="form-step" data-step="3">
+                    <h3>Document Upload</h3>
+                    <div class="mb-3">
+                        <label for="idProof" class="form-label">ID Proof</label>
+                        <input type="file" class="form-control" id="idProof" accept=".pdf,.jpg,.jpeg,.png" required>
+                        <div class="invalid-feedback">Please upload your ID proof</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="addressProof" class="form-label">Address Proof</label>
+                        <input type="file" class="form-control" id="addressProof" accept=".pdf,.jpg,.jpeg,.png" required>
+                        <div class="invalid-feedback">Please upload your address proof</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="incomeProof" class="form-label">Income Proof</label>
+                        <input type="file" class="form-control" id="incomeProof" accept=".pdf,.jpg,.jpeg,.png" required>
+                        <div class="invalid-feedback">Please upload your income proof</div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Review -->
+                <div class="form-step" data-step="4">
+                    <h3>Review Your Application</h3>
+                    <div id="review-summary" class="review-summary">
+                        <!-- Summary will be populated by JavaScript -->
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="button-container">
+            <button type="button" class="btn btn-secondary" id="prev-btn" disabled>Previous</button>
+            <button type="button" class="btn btn-primary" id="next-btn">Next</button>
+            <button type="submit" class="btn btn-success" id="submit-btn" style="display: none;">Submit Application</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="js/loan-application.js"></script>
+</body>
+</html>
